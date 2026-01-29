@@ -1,0 +1,58 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-black: #050505;
+  --color-cyber-darker: #0a0a0a;
+  --color-cyber-red: #ff003c;
+  --color-cyber-green: #00ff41;
+  --color-cyber-blue: #00f3ff;
+  --color-cyber-yellow: #ffd700;
+  --color-cyber-gray: #1a1a1a;
+
+  --shadow-neon-red: 0 0 10px #ff003c, 0 0 20px #ff003c44;
+  --shadow-neon-green: 0 0 10px #00ff41;
+  --shadow-neon-yellow: 0 0 10px #ffd700;
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+}
+
+@layer components {
+  .cyber-glass {
+    @apply bg-cyber-darker/80 backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+
+  .cyber-input {
+    @apply bg-black border border-cyber-gray text-white px-4 py-3 font-mono text-sm 
+           focus:outline-none focus:border-cyber-red focus:ring-1 focus:ring-cyber-red/50 
+           transition-all placeholder:text-gray-600 rounded-none;
+  }
+
+  .cyber-btn-primary {
+    @apply relative overflow-hidden border border-cyber-red text-cyber-red font-bold 
+           uppercase tracking-widest py-3 px-6 hover:bg-cyber-red hover:text-white 
+           transition-all active:scale-95 disabled:opacity-50 cursor-pointer;
+  }
+
+  .scan-line {
+    @apply absolute inset-0 pointer-events-none overflow-hidden;
+    &::after {
+      content: "";
+      @apply absolute w-full h-[10%] bg-gradient-to-b from-transparent via-cyber-red/20 to-transparent;
+      animation: scan 4s linear infinite;
+    }
+  }
+}
+
+body {
+  @apply bg-cyber-black text-gray-300 antialiased selection:bg-cyber-red selection:text-white;
+  background-image: 
+    linear-gradient(rgba(255, 0, 60, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 60, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
