@@ -1,9 +1,7 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import { AnimatePresence } from 'framer-motion';
 
-// Imports
 import { runScan } from './api/client';
 import { simulateDelay } from './utils/helpers';
 import MainLayout from './layouts/MainLayout';
@@ -20,7 +18,6 @@ export default function App() {
     setLoading(true);
     try {
       if (creds.mode === 'mock') {
-        // 2 Second delay as requested
         await simulateDelay(2000); 
       }
       
