@@ -237,3 +237,15 @@ docker compose up --build
 - Credentials are used **in‑memory only** for the lifetime of a request
 
 ---
+
+## UI Screenshots
+
+### Connection Manager
+![Connection Manager](screenshots/connection-manager.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Resource Inspector
+![Resource Inspector](screenshots/resource-inspector.png)
+
